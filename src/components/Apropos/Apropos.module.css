@@ -1,0 +1,65 @@
+
+.projectsSection {
+    padding: 50px;
+    background-color: #0a1f44; 
+    text-align: center;
+  }
+  
+  
+  .projectCards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; 
+  }
+  
+ 
+  .projectCard {
+    background: linear-gradient(145deg, #162946, #0d1d3a); 
+    color: white; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .projectCard:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+ 
+  .technologies {
+    margin-top: 10px;
+    color: #c5c6c7; 
+    font-size: 0.9rem;
+  }
+  
+  h3 {
+    color: #ff0033;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    color:rgb(255, 255, 255);
+  }
+  
+  .description {
+    margin-top: 15px;
+    color: #fff; 
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+
+  
+  
+  @media screen and (max-width: 830px) {
+    .projectCard {
+      width: 100%; 
+      margin-bottom: 20px;
+    }
+  }
+  
