@@ -86,6 +86,29 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  max-height: 600px; /* Hauteur fixe pour 3 projets */
+  overflow-y: auto; /* Scroll vertical */
+  padding-right: 10px; /* Espace pour la scrollbar */
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: var(--color-primary) transparent; /* Pour Firefox */
+}
+
+/* Style de la scrollbar pour Chrome/Safari */
+.projectsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.projectsList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projectsList::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.projectsList::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
 }
 
 .projectCard {

@@ -25,15 +25,19 @@ function App() {
     <div className={styles.App}>
     <Navbar />
     <Hero onContactClick={handleShowModal} />
-    <Projets />
-    <Apropos />
+    <div id="Projets">
+      <Projets />
+    </div>
+    <div id="Apropos">
+      <Apropos />
+    </div>
     {/* La modal contenant le formulaire de contact */}
     <Modal show={showModal} onClose={handleCloseModal}>
       <Contact />
     </Modal>
     <Footer />
   </div>
-);
+  );
 }
 
 export default App;

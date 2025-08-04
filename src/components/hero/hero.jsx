@@ -9,12 +9,10 @@ export const Hero = ({ onContactClick }) => {
                 <h1 className={styles.title}>Bonjour je suis Ridah</h1>
                 <p className={styles.description}>Développeur fullstack</p>
 
-                
                 <button onClick={onContactClick} className={styles.contactBtn}>
                     Contactez-moi
                 </button>
 
-               
                 <a 
                     href="../../public" 
                     download="Ridah_Benzarti.pdf" 

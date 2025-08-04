@@ -34,6 +34,16 @@ const projects = [
     demoComponent: "Morpion",
     github: "https://github.com/...",
     online: null
+  },
+  {
+    id: 4,
+    title: "Système de Gestion de Cinéma",
+    description: "Application web complète pour la gestion d'un complexe cinématographique.",
+    image: "paiment.png",
+    details: "Système de gestion intégré comprenant la réservation de billets, la gestion des salles et des séances, un système de paiement sécurisé, et un tableau de bord administrateur. Développé avec React pour le frontend et Node.js/Express pour le backend, avec une base de données MongoDB. Interface utilisateur intuitive avec système de géolocalisation pour les cinémas.",
+    demoComponent: null,
+    github: "https://github.com/rapappapapappapa/cinema-management",
+    online: "https://cinema-management-demo.vercel.app/"
   }
   // Ajoute d'autres projets ici
 ];
