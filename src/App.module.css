@@ -1,8 +1,17 @@
 @import "./vars.css";
 
 
-.App{
-    background-color: var(--color-bg);
-    width: 100%;
-    height: 100%;
+.App {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.dark {
+  /* Mode sombre - styles par défaut */
+}
+
+.light {
+  /* Mode clair - styles spécifiques si nécessaire */
 }

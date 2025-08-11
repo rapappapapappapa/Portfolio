@@ -40,6 +40,70 @@
     
   }
 
+  .navControls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .themeToggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .themeToggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+  }
+
+  .themeToggle:active {
+    transform: scale(0.95);
+  }
+
+  .navLink {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .navLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .navLink::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+
+  .navLink:hover::before {
+    width: 80%;
+  }
+
   @media screen and (max-width: 830px) {
     .navbar {
       flex-direction: column;

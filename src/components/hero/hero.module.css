@@ -10,6 +10,18 @@
     margin-left: 10%;
     margin-right: 10%;
     max-width: 1200px; 
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .content {
@@ -19,6 +31,18 @@
     align-items: flex-start;
     color: var(--color-text);
     z-index: 1;
+    animation: slideInLeft 1.2s ease-out 0.3s both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .title{

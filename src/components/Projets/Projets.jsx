@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Morpion from "../Morpion/Morpion";
 import styles from "./Projets.module.css";
 import { getImageUrl } from "../../utils";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 // Exemple de tableau de projets
 const projects = [
@@ -10,10 +11,10 @@ const projects = [
     title: "Projet e-commerce",
     description: "Site de e-commerce avec paiement Stripe.",
     image: "ecommerce.png",
-    details: "Le but du projet était de réaliser un site de e-commerce de zéro. J'ai principalement travaillé sur le formulaire de paiement avec Stripe.",
+    details: "Le but du projet était de réaliser un site de e-commerce de zéro. J'ai principalement travaillé sur le formulaire de paiement avec Stripe. Application complète avec gestion des produits, panier d'achat, système d'authentification et intégration de paiement sécurisé.",
     demoComponent: null,
-    github: "https://github.com/...",
-    online: null
+    github: "https://github.com/rapappapapappapa/Projet-e-commerce",
+    online: "https://github.com/rapappapapappapa/Projet-e-commerce"
   },
   {
     id: 2,
@@ -51,13 +52,34 @@ const projects = [
 export const Projets = () => {
   const [sectionOpen, setSectionOpen] = useState(false);
   const [openProject, setOpenProject] = useState(null);
+  const [sectionRef, isSectionVisible] = useScrollAnimation(0.2);
 
   const handleToggleProject = (id) => {
     setOpenProject(openProject === id ? null : id);
   };
 
+  const launchEcommerce = () => {
+    // Ouvre une nouvelle fenêtre avec les instructions pour lancer le projet
+    const instructions = `
+🚀 Pour lancer le projet e-commerce :
+
+1. Ouvrez un terminal
+2. Naviguez vers le projet : cd ~/Projet-e-commerce/ecommerce
+3. Lancez le backend : cd back && php -S localhost:8000
+4. Ouvrez un autre terminal
+5. Lancez le frontend : cd front && npm run dev
+6. Ouvrez http://localhost:5173 dans votre navigateur
+
+Ou cliquez sur le lien GitHub pour voir le code source !
+    `;
+    
+    alert(instructions);
+    // Ouvre aussi le README du projet
+    window.open('https://github.com/rapappapapappapa/Projet-e-commerce', '_blank');
+  };
+
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} ${styles.scrollReveal} ${isSectionVisible ? styles.visible : ''}`} ref={sectionRef}>
       <button
         className={styles.toggleSectionBtn}
         onClick={() => setSectionOpen(!sectionOpen)}
@@ -70,7 +92,7 @@ export const Projets = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className={`${styles.projectCard} ${openProject === project.id ? styles.open : ""}`}
+              className={`${styles.projectCard} ${styles.projectCardReveal} ${isSectionVisible ? styles.visible : ''} ${openProject === project.id ? styles.open : ""}`}
             >
               <div
                 className={styles.projectHeader}
@@ -97,14 +119,21 @@ export const Projets = () => {
                   <div className={styles.projectLinks}>
                     {project.github && (
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        Voir le code
+                        📁 Voir le code GitHub
                       </a>
                     )}
-                    {project.online && (
+                    {project.online && project.id === 1 ? (
+                      <button 
+                        onClick={launchEcommerce}
+                        className={styles.launchBtn}
+                      >
+                        🚀 Lancer le projet
+                      </button>
+                    ) : project.online ? (
                       <a href={project.online} target="_blank" rel="noopener noreferrer">
-                        Voir en ligne
+                        🌐 Voir le projet en ligne
                       </a>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               )}

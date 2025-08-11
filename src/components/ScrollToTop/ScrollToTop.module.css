@@ -1,0 +1,48 @@
+.scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 15px var(--color-shadow);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.scrollToTop:hover {
+  background: var(--color-secondary);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+.scrollToTop:active {
+  transform: translateY(-1px) scale(1.05);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scrollToTop {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}

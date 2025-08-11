@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Apropos.module.css";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const Apropos = () => {
   const projectData = [
@@ -18,27 +19,26 @@ export const Apropos = () => {
     {
       id: 3,
       name: "Autres compétences",
-      technologies: ["Dessin numérique, Modélisation 3D, Traduction"],
-      description: "Passionné par la création numérique, je combine mes compétences techniques avec un sens artistique développé. Le dessin numérique et la modélisation 3D m'aident à concevoir des interfaces plus intuitives et visuellement attrayantes. Ma maîtrise de plusieurs langues (français, anglais, arabe) facilite la collaboration internationale et l'adaptation de projets pour différents marchés. J'ai travaillé sur des projets de design d'interface utilisateur, créé des assets graphiques pour des applications web et participé à des projets de localisation de logiciels. Mes compétences en modélisation 3D m'ont permis de créer des visualisations de produits et des prototypes pour des applications de réalité augmentée. Je suis également familier avec les outils de design comme Adobe Creative Suite, Blender et Figma, ce qui me permet de collaborer efficacement avec les équipes de design et de marketing."
+      technologies: ["Dessin numérique, Modélisation 3D, Blender"],
+      description: "Passionné par la création numérique et le game design, je pratique le dessin numérique et la modélisation 3D avec Blender comme loisir créatif. Ces compétences m'aident à concevoir des interfaces de jeux et des éléments visuels pour mes projets. J'ai créé des assets 3D, des textures et des concepts visuels pour des projets personnels de jeux. Cette expérience artistique me permet d'avoir une approche plus créative dans la conception d'interfaces utilisateur et d'apporter une dimension visuelle à mes projets de développement web."
     },
   ];
 
-  
   const [activeProject, setActiveProject] = useState(null);
+  const [sectionRef, isSectionVisible] = useScrollAnimation(0.2);
 
-  
   const handleToggleProject = (id) => {
     setActiveProject(activeProject === id ? null : id);
   };
 
   return (
-    <section className={styles.AproposSection}>
-      <h2>Mes compétences</h2>
+    <section className={`${styles.AproposSection} ${styles.scrollReveal} ${isSectionVisible ? styles.visible : ''}`} ref={sectionRef}>
+      <h2 className={`${styles.sectionTitleReveal} ${isSectionVisible ? styles.visible : ''}`}>Mes compétences</h2>
       <div className={styles.projectCards}>
         {projectData.map((project) => (
           <div 
             key={project.id} 
-            className={styles.projectCard} 
+            className={`${styles.projectCard} ${styles.skillCardReveal} ${isSectionVisible ? styles.visible : ''} ${activeProject === project.id ? styles.open : ""}`}
             onClick={() => handleToggleProject(project.id)}
           >
             <h3>{project.name}</h3>
