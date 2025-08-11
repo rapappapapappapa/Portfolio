@@ -10,6 +10,7 @@ import { Projets } from './components/Projets/Projets';
 import { Apropos } from './components/Apropos/Apropos';
 import { Footer } from './components/Footer/Footer';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import { Particles } from './components/Particles/Particles';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <div className={`${styles.App} ${isDarkMode ? styles.dark : styles.light}`}>
+    <Particles />
     <Navbar onThemeToggle={toggleTheme} isDarkMode={isDarkMode} />
     <Hero onContactClick={handleShowModal} />
     <div id="Projets">

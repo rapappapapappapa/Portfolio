@@ -6,6 +6,7 @@
   color: var(--color-text);
   min-height: 100vh;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .dark {
@@ -14,4 +15,10 @@
 
 .light {
   /* Mode clair - styles spécifiques si nécessaire */
+}
+
+/* Améliorer la visibilité des sections avec les particles */
+.App > div {
+  position: relative;
+  z-index: 1;
 }

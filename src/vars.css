@@ -1,6 +1,7 @@
 :root {
   /* Mode sombre (par défaut) */
   --color-bg: #0a1f44;
+  --color-bg-rgb: 10, 31, 68;
   --color-bg-secondary: #162946;
   --color-bg-tertiary: #0d1d3a;
   --color-text: #ffffff;
@@ -17,6 +18,7 @@
 [data-theme="light"] {
   /* Mode clair */
   --color-bg: #f8f9fa;
+  --color-bg-rgb: 248, 249, 250;
   --color-bg-secondary: #ffffff;
   --color-bg-tertiary: #e9ecef;
   --color-text: #212529;
