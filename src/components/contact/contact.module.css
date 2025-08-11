@@ -1,52 +1,190 @@
 .contactSection {
-    padding: 50px;
-    background-color: #f4f4f4;
-    text-align: center;
-    border-radius: 15px;
+  padding: 20px;
+  background: transparent;
+  min-height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  color: var(--color-text);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input, .textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input:focus, .textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.input.error, .textarea.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.errorText {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.captchaContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.captchaQuestion {
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 70px;
+  text-align: center;
+}
+
+.captchaInput {
+  flex: 1;
+  max-width: 100px;
+}
+
+.generalError {
+  background: #dc3545;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.submitBtn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitting {
+  background: var(--color-secondary);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animation d'entrée */
+.container {
+  animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .contactSection {
+    padding: 15px;
   }
   
   .title {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #007BFF;
-  }
-  
-  .contactForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .inputGroup {
+    font-size: 1.5rem;
     margin-bottom: 20px;
-    width: 100%;
   }
   
-  .inputGroup label {
-    display: block;
-    margin-bottom: 5px;
+  .captchaContainer {
+    flex-direction: column;
+    align-items: stretch;
   }
   
-  .inputGroup input,
-  .inputGroup textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  .captchaInput {
+    max-width: none;
   }
-  
-  .submitBtn {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .submitBtn:hover {
-    background-color: #0056b3;
-  }
+}
   
